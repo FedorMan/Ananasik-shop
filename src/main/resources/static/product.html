@@ -61,7 +61,7 @@
                                 </form>
                             </div>
 
-                            <table class="table">
+                            <table id="myTable" class="table table-hover">
                                 <thead class="thead-inverse">
                                 <tr>
                                     <th>Products</th>
@@ -70,14 +70,14 @@
                                 </thead>
                                 <tbody>
                                 </tr>
-                                <tr ng-repeat="x in products">
+                                <tr ng-click="loadProduct(x)" ng-repeat="x in products" >
                                     <td>{{x.name}}</td>
                                     <td>{{x.price}}</td>
                                     <td>{{x.unit}}</td>
                                 </tr>
                                 </tbody>
                             </table>
-
+                            <button type="submit" ng-click="deleteProduct()" class="btn btn-success">Delete</button>
                         </article>
                     </section>
                     <!--aside используется для создаания сайдбаров на странице -->

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.RequestEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
@@ -56,6 +57,11 @@ public class MainController {
     @RequestMapping("/getProducts")
     public List<Product> getProducts(RequestEntity<Product> requestEntity){
         return productRepository.findAll();
+    }
+
+    @RequestMapping("/deleteProduct")
+    public void deleteProduc(@RequestParam("id") Long id){
+        productRepository.delete(id);
     }
 
 }
