@@ -1,0 +1,35 @@
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="scripts.js"></script>
+
+
+</head>
+<body ng-app="myApp" ng-controller="Controller">
+
+<!--Добавление блокнота-->
+
+    <div>
+
+        <div>
+            <div>
+                <h4>Add Product</h4>
+
+                <form>
+                    <div>
+                        <input type="text" ng-model="product.name">
+                        <input type="text" ng-model="product.price">
+                        <input type="text" ng-model="product.unit">
+                    </div>
+                    <div>
+                        <button type="button" ng-click="saveProduct()">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
