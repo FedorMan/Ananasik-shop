@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @RestController
@@ -51,4 +52,10 @@ public class MainController {
         Product product = requestEntity.getBody();
         productRepository.save(product);
     }
+
+    @RequestMapping("/getProducts")
+    public List<Product> getProducts(RequestEntity<Product> requestEntity){
+        return productRepository.findAll();
+    }
+
 }

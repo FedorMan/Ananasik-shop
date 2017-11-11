@@ -1,5 +1,11 @@
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inicial=scale">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script src="scripts.js"></script>
 
@@ -7,29 +13,81 @@
 </head>
 <body ng-app="myApp" ng-controller="Controller">
 
-<!--Добавление блокнота-->
+<!--Добавление товара-->
 
-    <div>
+                <header class="site-header clearfix">
+                <h1 class="myclass">MyShop</h1>
+                <nav id="main-menu">
+                    <ul>
+                        <li><a href="">Main</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Contacts</a></li>
+                    </ul>
+                </nav>
+                </header>
 
-        <div>
-            <div>
-                <h4>Add Product</h4>
+                <main>
+                    <section class="infosite">
+                        <h2> Интернет-магазин</h2>
+                        <p>Пока что тут пусто, но скоро я научусь что-то делать)</p>
+                    </section>
+                <div class="wrapper-col clearfix">
+                    <section class="col-main">
+                        <article class="post">
+                            <!-- Название -->
+                            <div class="post-header">
+                                <h4>Добавить товар</h4>
+                            </div>
+                            <div class="post-content">
 
-                <form>
-                    <div>
-                        <input type="text" ng-model="product.name">
-                        <input type="text" ng-model="product.price">
-                        <input type="text" ng-model="product.unit">
-                    </div>
-                    <div>
-                        <button type="button" ng-click="saveProduct()">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+                                <form role="form" class="form-inline">
+
+                                    <div class="form-group">
+                                        <label >Товар</label>
+                                        <input type="text" ng-model="product.name" class="form-control" placeholder="Введите товар">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Цена</label>
+                                        <input type="text" ng-model="product.price" class="form-control" placeholder="Введите цену">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Цена</label>
+                                        <input type="text" ng-model="product.unit" class="form-control" placeholder="Введите ед.измерения">
+                                    </div>
+
+                                        <button type="submit" ng-click="saveProduct()" class="btn btn-success">Сохранить</button>
+                                </form>
+                            </div>
+
+                            <table class="table">
+                                <thead class="thead-inverse">
+                                <tr>
+                                    <th>Products</th>
+                                    <th>Price</th>
+                                    <th>Unit</th>
+                                </thead>
+                                <tbody>
+                                </tr>
+                                <tr ng-repeat="x in products">
+                                    <td>{{x.name}}</td>
+                                    <td>{{x.price}}</td>
+                                    <td>{{x.unit}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </article>
+                    </section>
+                    <!--aside используется для создаания сайдбаров на странице -->
+                </div>
+                <!-- wrapper-col это обертка, в которую мы заворачиваем section и aside -->
+                </main>
 
 
-</div>
+
+
+
 </body>
 </html>
