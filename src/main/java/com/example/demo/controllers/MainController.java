@@ -36,16 +36,20 @@ public class MainController {
         return new ModelAndView("product.html");
     }
 
-    @RequestMapping("/addSaller")
-    public void addCategory(){
-
-        sellerRepository.save(new Seller("Anastasia", "Lagarnikova", "Vakilevna",
-                LocalDate.of(1996,7,23), LocalDate.of(2017,10,7), "lagarnas@gmail.com", "89179511739", "Novo-Sadovaya"));
+    @RequestMapping("/saveSeller")
+    public void saveSaller(RequestEntity<Seller> requestEntity){
+        Seller seller = requestEntity.getBody();
+        sellerRepository.save(seller);
     }
 
-    @RequestMapping("/getAllSellers")
-    public Iterable<Seller> getAll() {
+    @RequestMapping("/getSellers")
+    public List<Seller> getAll() {
         return sellerRepository.findAll();
+    }
+
+    @RequestMapping("/deleteSeller")
+    public void deleteSeller(@RequestParam("id") Long id){
+        sellerRepository.delete(id);
     }
 
     @RequestMapping("/saveProduct")
