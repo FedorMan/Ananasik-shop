@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Продавцы</title>
+    <meta name="viewport" content="width=device-width, inicial=scale">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="scripts.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="Controller">
+
+<header class="site-header clearfix">
+    <h1 class="myclass">MyShop</h1>
+    <nav id="main-menu">
+        <ul>
+            <li><a href="">Main</a></li>
+            <li><a href="">About us</a></li>
+            <li><a href="">Contacts</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="wrapper-col clearfix">
+        <section class="col-main">
+            <article class="post">
+                <!-- Название -->
+                <div class="post-header">
+                    <h4>Добавить Продавца</h4>
+                </div>
+                <div class="post-content">
+
+                    <form role="form" class="form-inline">
+
+                        <div class="form-group">
+                            <label >Продавец</label>
+                            <input type="text" ng-model="seller.firstname" class="form-control" placeholder="Имя">
+                            <input type="text" ng-model="seller.lastname" class="form-control" placeholder="Фамилия">
+                            <input type="text" ng-model="seller.secondname" class="form-control" placeholder="Отчество">
+                            <input type="date" name="input" ng-model="birthday.value"
+                                   placeholder="yyyy-MM-dd" required class="form-control" placeholder="Дата рождения">
+                            <input type="date" name="input" ng-model="startDate.value"
+                                   placeholder="yyyy-MM-dd" required class="form-control" placeholder="Начало работы">
+                            <input type="text" ng-model="seller.email" class="form-control" placeholder="Эл. почта">
+                            <input type="text" ng-model="seller.phonenumber" class="form-control" placeholder="Телефон">
+                            <input type="text" ng-model="seller.address" class="form-control" placeholder="Адресс">
+                        </div>
+
+                        <button type="submit" ng-click="saveSeller()" class="btn btn-success">Сохранить</button>
+                    </form>
+                </div>
+
+                <table id="myTable" class="table table-hover">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Отчество</th>
+                        <th>Дата рождения</th>
+                        <th>Начало работы</th>
+                        <th>Эл. почта</th>
+                        <th>Телефон</th>
+                        <th>Адресс</th>
+                    </thead>
+                    <tbody>
+                    </tr>
+                    <tr ng-repeat="x in sellers" ng-click="loadSeller(x)">
+                        <td>{{x.firstname}}</td>
+                        <td>{{x.lastname}}</td>
+                        <td>{{x.secondname}}</td>
+                        <td>{{x.birthday}}</td>
+                        <td>{{x.startworkdate}}</td>
+                        <td>{{x.email}}</td>
+                        <td>{{x.phonenumber}}</td>
+                        <td>{{x.address}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button type="submit" ng-click="deleteSeller()" class="btn btn-success">Delete</button>
+            </article>
+        </section>
+        <!--aside используется для создаания сайдбаров на странице -->
+    </div>
+    <!-- wrapper-col это обертка, в которую мы заворачиваем section и aside -->
+</main>
+
+
+</body>
+</html>

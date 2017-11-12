@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -17,14 +18,16 @@ public class Seller {
     private String lastname;
     private String secondname;
     @Type(type="org.hibernate.type.LocalDateType")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthday;
-
-
     @Type(type="org.hibernate.type.LocalDateType")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate startworkdate;
     private String email;
     private String phonenumber;
     private String address;
+
+
 
     public Seller() {
     }
@@ -110,6 +113,14 @@ public class Seller {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 
     @Override
