@@ -33,7 +33,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </section>
                 <div class="wrapper-col clearfix">
-                    <section class="col-main">
+                    <section class="col-main" ng-show="productView">
                             <!-- Название -->
                             <div class="post-header">
                                 <h2>Add new product</h2>
@@ -60,7 +60,7 @@
                                         <button type="submit" ng-click="saveProduct()" class="btn btn-success">Save</button>
                                 </form>
                             </div>
-                            <table id="myTable" class="table table-hover">
+                            <table id="myTable" class="table">
                                 <thead class="thead-inverse">
                                 <tr>
                                     <th scope="col">#</th>
@@ -70,7 +70,7 @@
                                 </thead>
                                 <tbody>
                                 </tr>
-                                <tr ng-click="loadProduct(x)" ng-repeat="x in products">
+                                <tr ng-click="loadProduct(x,$index)" ng-repeat="x in products" ng-class="{'highlight': $index == selectedRow}">
                                     <th scope="row">{{$index + 1}}</th>
                                     <td>{{x.name}}</td>
                                     <td>{{x.price}}</td>
@@ -80,6 +80,66 @@
                             </table>
                             <button type="submit" ng-click="deleteProduct()" class="btn btn-success">Delete</button>
                     </section>
+
+                    <section class="col-main" ng-show="sellerView">
+                        <article class="post">
+                            <!-- Название -->
+                            <div class="post-header">
+                                <h4>Добавить Продавца</h4>
+                            </div>
+                            <div class="post-content">
+
+                                <form role="form" class="form-inline">
+
+                                    <div class="form-group">
+                                        <label >Продавец</label>
+                                        <input type="text" ng-model="seller.firstname" class="form-control" placeholder="Имя">
+                                        <input type="text" ng-model="seller.lastname" class="form-control" placeholder="Фамилия">
+                                        <input type="text" ng-model="seller.secondname" class="form-control" placeholder="Отчество">
+                                        <input type="date" name="input" ng-model="birthday.value"
+                                               placeholder="yyyy-MM-dd" required class="form-control" placeholder="Дата рождения">
+                                        <input type="date" name="input" ng-model="startDate.value"
+                                               placeholder="yyyy-MM-dd" required class="form-control" placeholder="Начало работы">
+                                        <input type="text" ng-model="seller.email" class="form-control" placeholder="Эл. почта">
+                                        <input type="text" ng-model="seller.phonenumber" class="form-control" placeholder="Телефон">
+                                        <input type="text" ng-model="seller.address" class="form-control" placeholder="Адресс">
+                                    </div>
+
+                                    <button type="submit" ng-click="saveSeller()" class="btn btn-success">Сохранить</button>
+                                </form>
+                            </div>
+
+                            <table id="sellersTable" class="table table">
+                                <thead class="thead-inverse">
+                                <tr>
+                                    <th>Имя</th>
+                                    <th>Фамилия</th>
+                                    <th>Отчество</th>
+                                    <th>Дата рождения</th>
+                                    <th>Начало работы</th>
+                                    <th>Эл. почта</th>
+                                    <th>Телефон</th>
+                                    <th>Адресс</th>
+                                </thead>
+                                <tbody>
+                                </tr>
+                                <tr ng-repeat="x in sellers" ng-click="loadSeller(x,$index)" ng-class="{'highlight': $index == selectedRow}">
+                                    <td>{{x.firstname}}</td>
+                                    <td>{{x.lastname}}</td>
+                                    <td>{{x.secondname}}</td>
+                                    <td>{{x.birthday}}</td>
+                                    <td>{{x.startworkdate}}</td>
+                                    <td>{{x.email}}</td>
+                                    <td>{{x.phonenumber}}</td>
+                                    <td>{{x.address}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <button type="submit" ng-click="deleteSeller()" class="btn btn-success">Delete</button>
+                        </article>
+                    </section>
+
+
                     <aside class="col-sidebar">
                         <div class="container-form">
                             <form type="get" action="form.php">
@@ -92,8 +152,8 @@
                         </div>
                         <div class="container-category">
                             <ul class="cat-list">
-                                <li><a href="">Add Product</a></li>
-                                <li><a href="http://localhost:8095/seller.html">Sellers</a></li>
+                                <li><a ng-click="viewProducts()">Products</a></li>
+                                <li><a ng-click="viewSellers()">Sellers</a></li>
                                 <li><a href="">Customers</a></li>
                             </ul>
 

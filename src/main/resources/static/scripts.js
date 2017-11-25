@@ -15,8 +15,9 @@ app.controller('Controller', function ($scope, $http) {
         });
     };
 
-    $scope.loadProduct = function (x) {
+    $scope.loadProduct = function (x,rowIndex) {
         $scope.productInFocus = x;
+        $scope.selectedRow = rowIndex;
     };
 
     $scope.deleteProduct = function () {
@@ -42,8 +43,9 @@ app.controller('Controller', function ($scope, $http) {
         });
     };
 
-    $scope.loadSeller = function (x) {
+    $scope.loadSeller = function (x,rowIndex) {
         $scope.sellerInFocus = x;
+        $scope.selectedRow = rowIndex;
     };
 
     $scope.deleteSeller = function () {
@@ -52,7 +54,23 @@ app.controller('Controller', function ($scope, $http) {
         });
     };
 
+    $scope.viewSellers = function () {
+        $scope.productView = false;
+        $scope.sellerView = true;
+        $scope.selectedRow = null;
+    };
+    $scope.viewProducts = function () {
+        $scope.productView = true;
+        $scope.sellerView = false;
+        $scope.selectedRow = null;
+    };
+
 
     $scope.loadProducts();
     $scope.loadSellers();
+
+    $scope.productView = true;
+    $scope.sellerView = false;
+    $scope.selectedRow = null;
+
 });
