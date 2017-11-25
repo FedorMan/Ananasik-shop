@@ -85,33 +85,58 @@
                         <article class="post">
                             <!-- Название -->
                             <div class="post-header">
-                                <h4>Добавить Продавца</h4>
+                                <h2>Add new product</h2>
                             </div>
+
+                            <!-- Seller -->
                             <div class="post-content">
 
-                                <form role="form" class="form-inline">
+                                <form>
 
-                                    <div class="form-group">
-                                        <label >Продавец</label>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        <label >Имя</label>
                                         <input type="text" ng-model="seller.firstname" class="form-control" placeholder="Имя">
+                                        </div>
+                                        <div class="col-md-3">
+                                        <label >Фамилия</label>
                                         <input type="text" ng-model="seller.lastname" class="form-control" placeholder="Фамилия">
+                                        </div>
+                                        <div class="col-md-3">
+                                        <label >Отчество</label>
                                         <input type="text" ng-model="seller.secondname" class="form-control" placeholder="Отчество">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label >Дата рождения</label>
                                         <input type="date" name="input" ng-model="birthday.value"
                                                placeholder="yyyy-MM-dd" required class="form-control" placeholder="Дата рождения">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label >Начало работы</label>
                                         <input type="date" name="input" ng-model="startDate.value"
                                                placeholder="yyyy-MM-dd" required class="form-control" placeholder="Начало работы">
-                                        <input type="text" ng-model="seller.email" class="form-control" placeholder="Эл. почта">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label >E-mail</label>
+                                        <input type="text" ng-model="seller.email" class="form-control" placeholder="E-mail">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label >Телефон</label>
                                         <input type="text" ng-model="seller.phonenumber" class="form-control" placeholder="Телефон">
-                                        <input type="text" ng-model="seller.address" class="form-control" placeholder="Адресс">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label >Адрес</label>
+                                        <input type="text" ng-model="seller.address" class="form-control" placeholder="Адрес">
+                                        </div>
                                     </div>
-
                                     <button type="submit" ng-click="saveSeller()" class="btn btn-success">Сохранить</button>
                                 </form>
                             </div>
 
-                            <table id="sellersTable" class="table table">
+                            <table id="sellersTable" class="table">
                                 <thead class="thead-inverse">
                                 <tr>
+                                    <th scope="col">#</th>
                                     <th>Имя</th>
                                     <th>Фамилия</th>
                                     <th>Отчество</th>
@@ -124,6 +149,7 @@
                                 <tbody>
                                 </tr>
                                 <tr ng-repeat="x in sellers" ng-click="loadSeller(x,$index)" ng-class="{'highlight': $index == selectedRow}">
+                                    <th scope="row">{{$index + 1}}</th>
                                     <td>{{x.firstname}}</td>
                                     <td>{{x.lastname}}</td>
                                     <td>{{x.secondname}}</td>
