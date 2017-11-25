@@ -1,6 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>MyShop</title>
     <meta name="viewport" content="width=device-width, inicial=scale">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
@@ -28,49 +29,49 @@
 
                 <main>
                     <section class="infosite">
-                        <h2> Интернет-магазин</h2>
-                        <p>Пока что тут пусто, но скоро я научусь что-то делать)</p>
+                        <h2>Fruits and vegetables</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </section>
                 <div class="wrapper-col clearfix">
                     <section class="col-main">
-                        <article class="post">
                             <!-- Название -->
                             <div class="post-header">
-                                <h4>Добавить товар</h4>
+                                <h2>Add new product</h2>
                             </div>
                             <div class="post-content">
 
                                 <form role="form" class="form-inline">
 
                                     <div class="form-group">
-                                        <label >Товар</label>
-                                        <input type="text" ng-model="product.name" class="form-control" placeholder="Введите товар">
+                                        <label >Product</label>
+                                        <input type="text" ng-model="product.name" class="form-control" placeholder="add product">
                                     </div>
 
                                     <div class="form-group">
-                                        <label >Цена</label>
-                                        <input type="text" ng-model="product.price" class="form-control" placeholder="Введите цену">
+                                        <label >Price</label>
+                                        <input type="text" ng-model="product.price" class="form-control" placeholder="add price">
                                     </div>
 
                                     <div class="form-group">
-                                        <label >Цена</label>
-                                        <input type="text" ng-model="product.unit" class="form-control" placeholder="Введите ед.измерения">
+                                        <label >Unit</label>
+                                        <input type="text" ng-model="product.unit" class="form-control" placeholder="add unit">
                                     </div>
 
-                                        <button type="submit" ng-click="saveProduct()" class="btn btn-success">Сохранить</button>
+                                        <button type="submit" ng-click="saveProduct()" class="btn btn-success">Save</button>
                                 </form>
                             </div>
-
                             <table id="myTable" class="table table-hover">
                                 <thead class="thead-inverse">
                                 <tr>
+                                    <th scope="col">#</th>
                                     <th>Products</th>
                                     <th>Price</th>
                                     <th>Unit</th>
                                 </thead>
                                 <tbody>
                                 </tr>
-                                <tr ng-click="loadProduct(x)" ng-repeat="x in products" >
+                                <tr ng-click="loadProduct(x)" ng-repeat="x in products">
+                                    <th scope="row">{{$index + 1}}</th>
                                     <td>{{x.name}}</td>
                                     <td>{{x.price}}</td>
                                     <td>{{x.unit}}</td>
@@ -78,12 +79,33 @@
                                 </tbody>
                             </table>
                             <button type="submit" ng-click="deleteProduct()" class="btn btn-success">Delete</button>
-                        </article>
                     </section>
+                    <aside class="col-sidebar">
+                        <div class="container-form">
+                            <form type="get" action="form.php">
+                                <input type="text" id="search-form" name="search" placeholder="Поиск">
+                                <button>
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                </input>
+                            </form>
+                        </div>
+                        <div class="container-category">
+                            <ul class="cat-list">
+                                <li><a href="">Add Product</a></li>
+                                <li><a href="http://localhost:8095/seller.html">Sellers</a></li>
+                                <li><a href="">Customers</a></li>
+                            </ul>
+
+                        </div>
+                    </aside>
                     <!--aside используется для создаания сайдбаров на странице -->
                 </div>
                 <!-- wrapper-col это обертка, в которую мы заворачиваем section и aside -->
                 </main>
+
+
+
 
 
 
