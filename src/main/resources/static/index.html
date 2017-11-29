@@ -80,12 +80,13 @@
                             </table>
                             <button type="submit" ng-click="deleteProduct()" class="btn btn-success">Delete</button>
                     </section>
+                    <p></p>
 
                     <section class="col-main" ng-show="sellerView">
                         <article class="post">
                             <!-- Название -->
                             <div class="post-header">
-                                <h2>Add new product</h2>
+                                <h2>Add seller</h2>
                             </div>
 
                             <!-- Seller -->
@@ -112,23 +113,28 @@
                                                placeholder="yyyy-MM-dd" required class="form-control" placeholder="Дата рождения">
                                         </div>
                                         <div class="col-md-3">
-                                            <label >Начало работы</label>
+                                            <p></p>
+                                            <label>Начало работы</label>
                                         <input type="date" name="input" ng-model="startDate.value"
                                                placeholder="yyyy-MM-dd" required class="form-control" placeholder="Начало работы">
                                         </div>
                                         <div class="col-md-3">
+                                            <p></p>
                                             <label >E-mail</label>
                                         <input type="text" ng-model="seller.email" class="form-control" placeholder="E-mail">
                                         </div>
                                         <div class="col-md-3">
+                                            <p></p>
                                             <label >Телефон</label>
                                         <input type="text" ng-model="seller.phonenumber" class="form-control" placeholder="Телефон">
                                         </div>
                                         <div class="col-md-3">
+                                            <p></p>
                                             <label >Адрес</label>
                                         <input type="text" ng-model="seller.address" class="form-control" placeholder="Адрес">
                                         </div>
                                     </div>
+                                    <p></p>
                                     <button type="submit" ng-click="saveSeller()" class="btn btn-success">Сохранить</button>
                                 </form>
                             </div>
@@ -144,7 +150,7 @@
                                     <th>Начало работы</th>
                                     <th>Эл. почта</th>
                                     <th>Телефон</th>
-                                    <th>Адресс</th>
+                                    <th>Адрес</th>
                                 </thead>
                                 <tbody>
                                 </tr>
