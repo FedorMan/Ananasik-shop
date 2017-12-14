@@ -181,10 +181,13 @@
 
 }
 
+.container-category ul li a:hover{
+    	color: #f05f40;
+    	cursor: pointer;
+}
 /*post list*/
 
 .post{
-	border:solid 1px #ccc;
 	margin-bottom: 20px;
 	padding-bottom: 15px;
 	margin-right: 20px;
@@ -241,7 +244,7 @@
 }
 
 .highlight {
-	background-color: #dcc2ff;
+	background-color: #BDECB6;
 }
 
 

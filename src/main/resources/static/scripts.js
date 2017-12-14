@@ -2,7 +2,7 @@ var app = angular.module('myApp', []);
 app.controller('Controller', function ($scope, $http) {
     $scope.saveProduct = function () {
         $scope.master = angular.copy($scope.product);
-        $http.post("/saveProduct", $scope.master).success(function (master, status) {
+        $http.post("/controller/product/save", $scope.master).success(function (master, status) {
             $scope.hello = $scope.master;
             $scope.product = {};
             $scope.loadProducts();
@@ -10,7 +10,7 @@ app.controller('Controller', function ($scope, $http) {
     };
 
     $scope.loadProducts = function () {
-        $http.get("/getProducts").then(function (response) {
+        $http.get("/controller/product/all").then(function (response) {
             $scope.products = response.data;
         });
     };
@@ -21,7 +21,7 @@ app.controller('Controller', function ($scope, $http) {
     };
 
     $scope.deleteProduct = function () {
-        $http.get("/deleteProduct?id=" + $scope.productInFocus.id).then(function (response) {
+        $http.get("/controller/product/delete?id=" + $scope.productInFocus.id).then(function (response) {
             $scope.loadProducts();
         });
     };
@@ -30,7 +30,7 @@ app.controller('Controller', function ($scope, $http) {
         $scope.seller.birthday = $scope.birthday.value;
         $scope.seller.startworkdate = $scope.startDate.value;
         $scope.master = angular.copy($scope.seller);
-        $http.post("/saveSeller", $scope.master).success(function (master, status) {
+        $http.post("/controller/seller/save", $scope.master).success(function (master, status) {
             $scope.hello = $scope.master;
             $scope.seller = {};
             $scope.loadSellers();
@@ -38,7 +38,7 @@ app.controller('Controller', function ($scope, $http) {
     };
 
     $scope.loadSellers = function () {
-        $http.get("/getSellers").then(function (response) {
+        $http.get("/controller/seller/all").then(function (response) {
             $scope.sellers = response.data;
         });
     };
@@ -49,7 +49,7 @@ app.controller('Controller', function ($scope, $http) {
     };
 
     $scope.deleteSeller = function () {
-        $http.get("/deleteSeller?id=" + $scope.sellerInFocus.id).then(function (response) {
+        $http.get("/controller/seller/delete?id=" + $scope.sellerInFocus.id).then(function (response) {
             $scope.loadSellers();
         });
     };
